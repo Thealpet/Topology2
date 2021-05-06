@@ -1,26 +1,31 @@
 from flask import Flask, request
 from flask_restful import Api #vet ikke om man trenger dette
+import flask 
 
-'''import mysql.connector #pip install mysql-connector-python
+import mysql.connector #pip install mysql-connector-python
 
 mysql_user = 'user'
 mysql_pwd  = 'G1f3HiAq45'
-mysql_host = 'localhost' #'mysql1'
+mysql_host = 'mysql1'
 mysql_db   = 'shopDB'
 
-mydb = mysql.connector.connect(user = mysql_user, password = mysql_pwd, host = mysql_host, port='3306', database = mysql_db)
+mydb = mysql.connector.connect(user = mysql_user, password = mysql_pwd, host = mysql_host,  database = mysql_db)
 
 mycursor = mydb.cursor()
 mycursor.execute("SELECT * FROM items")
-myresult = mycursor.fetchall()'''
+myresult = mycursor.fetchall()
 
-app = Flask(__name__, static_folder="./frontend", static_url_path="")
+app = Flask(__name__, static_folder="/var/fullstack/frontend", static_url_path="")
 api = Api(app)
 
-@app.route('/', defaults={'path': 'frontend.html'}) 
-'''def allItems():
+@app.route('/', defaults={'path': 'index.html'}) 
+@app.route('/<path>')
+def serve_page(path):
+    return flask.send_from_directory('/var/fullstack/frontend', path)
+
+#def allItems():
     #return flask.jsonify(myresult)
-    pass'''
+    
 
 @app.route('/api/item/<int:item_id>', methods=['GET']) 
 def oneItem():
@@ -40,3 +45,4 @@ def orderComplete():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
+    mydb.close()

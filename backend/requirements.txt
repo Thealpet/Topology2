@@ -1,3 +1,5 @@
 mysql-connector-python
 Flask
 requests
+Api
+Flask-RESTful
