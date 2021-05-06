@@ -18,9 +18,9 @@ app = Flask(__name__, static_folder="./frontend", static_url_path="")
 api = Api(app)
 
 @app.route('/', defaults={'path': 'frontend.html'}) 
-'''def allItems():
+#def allItems():
     #return flask.jsonify(myresult)
-    pass'''
+    #pass
 
 @app.route('/api/item/<int:item_id>', methods=['GET']) 
 def oneItem():
