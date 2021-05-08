@@ -49,16 +49,13 @@
                 float: right;
             }
 
-        
-
-
         </style>
-
-        <script src="fullstack.js"></script>
+    
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        
+        <script src="fullstack.js"></script>
+         
     </head>
 
     
@@ -74,25 +71,36 @@
 
         </div>
 
-        <div class="container" id="items">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="thumbnail">
-                        <a href="/images/aloevera.jpg">
-                            <img src="../images/aloevera.jpg" class="img-fluid card-image" style="width: 100%">
-                            <div class="description">
-                                <p>Description</p>
-                            </div>
-                        </a>
+        <section class="text-center text-md-start">
+            <div class="container" id="items">
+                <div class="row" id="first_row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image">
+                            <a href="#!">
+                                <img src="aloevera.jpg" class="img-fluid card-image" style="width: 100%"/>
+                                <!--<h4 class="name">Hello</h4>
+                                <div class=" description" id="description">
+                                    <p></p>
+                                </div>
+                                <div class="center" id="name">
+                                    <h4 class="name"></h4>
+                                    <button type="button" class="btn btn-primary" onclick="load_copter(this)">Load Ponycopter</button>
+                                </div>-->
+                                
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="card-title">Hello</h4>
+                        <p>ehoøhføiwafgøowHFØOgwefo</p>
+                        <button type="button" class="btn btn-primary" onclick="location.href='home.html'">Load Ponycopter</button>
                     </div>
                 </div>
-                <img src="/images/aloevera.jpg" class="img-fluid card-image" style="width: 100%">
-                    <h3>Bilde</h3>
-                    <p>Liten beskrivelse</p>
-                    <p>Pris</p>
-                    <button type="button" class="btn btn-primary" onclick="more_info()">More info</button>
             </div>
-        </div>
-        
+
+        </section>
     </body>
 </html>
+
+
+
