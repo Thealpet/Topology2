@@ -1,5 +1,3 @@
-console.log("Frontend loaded")
-
 var images = ["../images/aloevera.jpg"]
 
 var items = []
@@ -7,35 +5,40 @@ var items = []
 function render_users(data){
     
     var h_list = document.getElementById("items");
-    var h_row1 = document.getElementById("first_row");
+    var h_col = document.getElementById("col");
+
     
 
-    for (i in data){
+    for (var i = 0; i < data.length; i++){
         items[i] = data[i];
-        [id, n, item] = data[i];
+        [id, n, s_des, l_des] = data[i];
 
-        var cloned_row = h_row1.cloneNode(true);
-        cloned_row.id = id;
+        var cloned_col = h_col.cloneNode(true);
+        cloned_col.id = id;
+            
+        var h_title = cloned_col.querySelector(".name");
+        h_title.innerHTML = n;
 
-        var h_title = cloned_row.querySelector(".card-title");
-        h_title.innerHTML = id.toString() + ". Name: " + n;
-
+        var h_des = cloned_col.querySelector(".description");
+        h_des.innerHTML = s_des;
+    
+    
         /*var h_img = cloned_row.querySelector(".card-image");
         h_img.src = images[id - 1]; //what is the meaning of this
 
         var h_btn = cloned_row.querySelector(".btn");
         h_btn.onclick = load_copter;*/
         
-
-        h_list.appendChild(cloned_row);       
+        h_list.appendChild(cloned_col);
     }
 
-    h_row1.remove();
+    h_col.remove();
+
 }
 
 fetch("./api/users")
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => render_users(data));
 
    
 
