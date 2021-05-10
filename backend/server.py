@@ -18,10 +18,17 @@ myresult = mycursor.fetchall()
 app = Flask(__name__, static_folder="/var/fullstack/frontend", static_url_path="")
 api = Api(app)
 
+<<<<<<< HEAD
+@app.route('/', defaults={'path': 'frontend.html'}) 
+#def allItems():
+    #return flask.jsonify(myresult)
+    #pass
+=======
 @app.route('/', defaults={'path': 'index.html'}) 
 @app.route('/<path>')
 def serve_page(path):
     return flask.send_from_directory('/var/fullstack/frontend', path)
+>>>>>>> 562c2c1810e9a33c79e640d54e19bcc00a28b57e
 
 @app.route('/api/users', methods=['GET'])
 def get_users():
